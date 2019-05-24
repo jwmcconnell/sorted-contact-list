@@ -1,0 +1,15 @@
+header {
+  text-align: center;
+  background: black;
+  color: white;
+}
+
+body {
+  background: grey;
+  margin: 0;
+}
+
+header h1 {
+  margin: 0;
+  padding: .3em;
+}

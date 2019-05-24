@@ -5,7 +5,7 @@ class Header extends Component {
   renderTemplate() {
     return /*html*/`
       <header>
-        <span>Sorted Contact List</span>
+        <h1>Sorted Contact List</h1>
       </header>
     `;
   }
