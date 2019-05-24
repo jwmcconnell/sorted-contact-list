@@ -16,8 +16,6 @@ class ContactTable extends Component {
       tableBody.appendChild(tableRowDOM);
     });
 
-    const firstNameButton = dom.querySelector('#firstName');
-
     const buttons = dom.querySelectorAll('.table-button');
 
     buttons.forEach(button => {
@@ -28,14 +26,6 @@ class ContactTable extends Component {
         };
         this.props.onSort(properties);
       });
-    });
-
-    firstNameButton.addEventListener('click', () => {
-      const properties = {
-        type: firstNameButton.id,
-        direction: 1
-      };
-      this.props.onSort(properties);
     });
 
     return dom;
