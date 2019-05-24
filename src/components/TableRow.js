@@ -9,8 +9,8 @@ class TableRow extends Component {
       <td>${contact.firstName}</td>
       <td>${contact.lastName}</td>
       <td>${contact.age}</td>
-      <td>${contact.phone}</td>
       <td>${contact.email}</td>
+      <td>${contact.phone}</td>
       <td>${contact.company}</td>
       <td>${contact.address}</td>
       <td>${contact.balance}</td>

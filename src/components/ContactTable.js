@@ -16,6 +16,28 @@ class ContactTable extends Component {
       tableBody.appendChild(tableRowDOM);
     });
 
+    const firstNameButton = dom.querySelector('#firstName');
+
+    const buttons = dom.querySelectorAll('.table-button');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const properties = {
+          type: button.id,
+          direction: 1
+        };
+        this.props.onSort(properties);
+      });
+    });
+
+    firstNameButton.addEventListener('click', () => {
+      const properties = {
+        type: firstNameButton.id,
+        direction: 1
+      };
+      this.props.onSort(properties);
+    });
+
     return dom;
   }
 
@@ -24,15 +46,15 @@ class ContactTable extends Component {
     <table>
     <thead>
       <tr>
-        <td>First Name</td>
-        <td>Last Name</td>
-        <td>Age</td>
-        <td>Email</td>
-        <td>Phone</td>
-        <td>Company</td>
-        <td>Address</td>
-        <td>Balance</td>
-        <td>Favorite Fruit</td>
+        <td><button id="firstName" class="table-button">First Name</button></td>
+        <td><button id="lastName" class="table-button">Last Name</button></td>
+        <td><button id="age" class="table-button">Age</button></td>
+        <td><button id="email" class="table-button">Email</button></td>
+        <td><button id="phone" class="table-button">Phone</button></td>
+        <td><button id="company" class="table-button">Company</button></td>
+        <td><button id="address" class="table-button">Address</button></button></td>
+        <td><button id="balance" class="table-button">Balance</button></td>
+        <td><button id="favoriteFruit" class="table-button">Favorite Fruit</button></td>
       </tr>
     </thead>
     <tbody id="contacts">
