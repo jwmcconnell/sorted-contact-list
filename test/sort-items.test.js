@@ -56,7 +56,7 @@ const Keller = {
 const items = [George, Cantu, Keller];
 
 function sortItems(items, properties) {
-  const sorted = items.sort((a, b) => {
+  const sorted = items.slice().sort((a, b) => {
     if(a[properties.type] > b[properties.type]) {
       return 1 * properties.direction;
     }
@@ -103,4 +103,18 @@ test('Sort items on favorite fruit reversed', assert => {
   const result = sortItems(items, properties);
   //Assert
   assert.deepEqual(result, [George, Cantu, Keller]);
+});
+
+test('make sure the array is not affected by the sort', assert => {
+  //Arrange
+  const properties = {
+    type: 'favoriteFruit',
+    direction: -1
+  };
+
+  const itemsToSort = [George, Cantu, Keller];
+  //Act 
+  const result = sortItems(itemsToSort, properties);
+  //Assert
+  assert.notEqual(result, itemsToSort);
 }); 
