@@ -1,6 +1,23 @@
 import Component from './Component.js';
+import TableRow from './TableRow.js';
 
 class ContactTable extends Component {
+
+  render() {
+    const dom = this.renderDOM();
+
+    const contacts = this.props.contacts;
+
+    const tableBody = dom.querySelector('#contacts');
+
+    contacts.forEach(contact => {
+      const tableRow = new TableRow({ contact });
+      const tableRowDOM = tableRow.render();
+      tableBody.appendChild(tableRowDOM);
+    });
+
+    return dom;
+  }
 
   renderTemplate() {
     return /*html*/`
@@ -20,6 +37,7 @@ class ContactTable extends Component {
     </thead>
     <tbody id="contacts">
     </tbody>
+    </table>
     `;
   }
 

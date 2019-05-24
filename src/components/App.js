@@ -1,6 +1,7 @@
 import Component from './Component.js';
 import Header from './Header.js';
 import ContactTable from './ContactTable.js';
+import contacts from '../../data/contacts.js';
 
 class App extends Component {
 
@@ -10,7 +11,7 @@ class App extends Component {
     const header = new Header();
     const headerDOM = header.render();
 
-    const contactTable = new ContactTable();
+    const contactTable = new ContactTable({ contacts });
     const contactTableDOM = contactTable.render();
 
     const main = dom.querySelector('main');
