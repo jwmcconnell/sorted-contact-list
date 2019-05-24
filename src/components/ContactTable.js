@@ -1,6 +1,11 @@
 import Component from './Component.js';
 import TableRow from './TableRow.js';
 
+let currentSort = {
+  type: null,
+  direction: 0
+};
+
 class ContactTable extends Component {
 
   render() {
@@ -20,10 +25,20 @@ class ContactTable extends Component {
 
     buttons.forEach(button => {
       button.addEventListener('click', () => {
+
         const properties = {
           type: button.id,
           direction: 1
         };
+
+        if(currentSort.type === properties.type &&
+          currentSort.direction === properties.direction) {
+          properties.direction = properties.direction * -1;
+        }
+
+        currentSort.type = properties.type;
+        currentSort.direction = properties.direction;
+
         this.props.onSort(properties);
       });
     });
