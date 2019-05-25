@@ -5,8 +5,12 @@ header {
 }
 
 body {
-  background: darkgrey;
+  background: #a9a9a9;
   margin: 0;
+}
+
+h2 {
+  text-align: center;
 }
 
 header h1 {

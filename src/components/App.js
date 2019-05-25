@@ -35,7 +35,9 @@ class App extends Component {
   renderTemplate() {
     return /*html*/`
       <div>
-        <main></main>
+        <main>
+          <h2>Click a column header to sort and click again to change sort direction</h2>
+        </main>
       </div>
     `;
   }
