@@ -25,7 +25,6 @@ td, tr {
 
 thead th {
   white-space: nowrap;
-  text-align: center;
   margin: 2px;
 }
 
@@ -38,15 +37,13 @@ tbody td {
   height: 100%;
   padding: 10px 20px;
   font-size: 1em;
-  text-align: center;
   background: transparent;
   border: none;
   position: relative;
 }
 
 .hidden {
-  display: none;
-  /* background: red; */
+  opacity: 0;
 }
 
 #sort-up, #sort-down {
