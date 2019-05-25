@@ -63,9 +63,9 @@ class ContactTable extends Component {
   renderTemplate() {
     return /*html*/`
     <table>
-    <thead>
-      <tr></tr>
-    </thead>
+      <thead>
+        <tr></tr>
+      </thead>
       <tbody id="contacts"></tbody>
     </table>
     `;
