@@ -3,6 +3,7 @@ import Header from './Header.js';
 import ContactTable from './ContactTable.js';
 import contacts from '../../data/contacts.js';
 import sortItems from '../sortItems.js';
+import headerCellData from '../../data/headerCells.js';
 
 class App extends Component {
 
@@ -13,10 +14,12 @@ class App extends Component {
     const headerDOM = header.render();
 
     const contactTable = new ContactTable({
+      properties: {},
+      headerCellData,
       contacts,
       onSort: (properties) => {
         const sortedContacts = sortItems(contacts, properties);
-        contactTable.update({ contacts: sortedContacts });
+        contactTable.update({ properties, contacts: sortedContacts });
       }
     });
     const contactTableDOM = contactTable.render();

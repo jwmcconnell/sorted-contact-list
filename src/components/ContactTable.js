@@ -1,5 +1,6 @@
 import Component from './Component.js';
 import TableRow from './TableRow.js';
+import HeaderCell from './HeaderCell.js';
 
 let currentSort = {
   type: null,
@@ -11,7 +12,20 @@ class ContactTable extends Component {
   render() {
     const dom = this.renderDOM();
 
+    const headerCellData = this.props.headerCellData;
     const contacts = this.props.contacts;
+
+    const tr = dom.querySelector('tr');
+
+    headerCellData.forEach(data => {
+      const headerCell = new HeaderCell({
+        properties: this.props.properties,
+        cellName: data.cellName,
+        cellValue: data.cellValue,
+      });
+      const headerCellDOM = headerCell.render();
+      tr.appendChild(headerCellDOM);
+    });
 
     const tableBody = dom.querySelector('#contacts');
 
@@ -27,7 +41,7 @@ class ContactTable extends Component {
       button.addEventListener('click', () => {
 
         const properties = {
-          type: button.id,
+          type: button.value,
           direction: 1
         };
 
@@ -50,20 +64,9 @@ class ContactTable extends Component {
     return /*html*/`
     <table>
     <thead>
-      <tr>
-        <td><button id="firstName" class="table-button">First Name</button></td>
-        <td><button id="lastName" class="table-button">Last Name</button></td>
-        <td><button id="age" class="table-button">Age</button></td>
-        <td><button id="email" class="table-button">Email</button></td>
-        <td><button id="phone" class="table-button">Phone</button></td>
-        <td><button id="company" class="table-button">Company</button></td>
-        <td><button id="address" class="table-button">Address</button></button></td>
-        <td><button id="balance" class="table-button">Balance</button></td>
-        <td><button id="favoriteFruit" class="table-button">Favorite Fruit</button></td>
-      </tr>
+      <tr></tr>
     </thead>
-    <tbody id="contacts">
-    </tbody>
+      <tbody id="contacts"></tbody>
     </table>
     `;
   }
